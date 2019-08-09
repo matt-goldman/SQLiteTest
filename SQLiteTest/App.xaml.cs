@@ -6,11 +6,27 @@ namespace SQLiteTest
 {
     public partial class App : Application
     {
+
+        static Database database;
+
+        public static Database Database
+        {
+            get
+            {
+                if (database == null)
+                {
+                    database = new Database();
+                }
+
+                return database;
+            }
+        }
+
         public App()
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new MainPage(new MainPageViewModel());
         }
 
         protected override void OnStart()

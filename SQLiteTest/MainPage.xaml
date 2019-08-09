@@ -6,11 +6,26 @@
              mc:Ignorable="d"
              x:Class="SQLiteTest.MainPage">
 
-    <StackLayout>
+    <StackLayout Margin="30,100">
         <!-- Place new controls here -->
-        <Label Text="Welcome to Xamarin.Forms!" 
+        <Label Text="SQLite Test App" 
            HorizontalOptions="Center"
-           VerticalOptions="CenterAndExpand" />
+           VerticalOptions="Center" />
+
+        <Entry Placeholder="Enter item here..."
+               Text="{Binding EntryData, Mode=TwoWay}"/>
+        <Button Text="Add"
+                Command="{Binding addData}"/>
+
+        <ListView ItemsSource="{Binding DataList}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Label Text="{Binding DataText}"/>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </StackLayout>
 
 </ContentPage>
